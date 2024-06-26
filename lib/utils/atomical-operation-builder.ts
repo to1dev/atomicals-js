@@ -585,7 +585,7 @@ export class AtomicalOperationBuilder {
                 copiedData["op"] = "def";
                 console.log(copiedData);
             case REQUEST_NAME_TYPE.CONTRACT:
-                copiedData["p"] = this.requestProtocolName;
+                copiedData["p"] = this.requestName;
                 // copiedData["name"] = this.requestName;
                 copiedData["op"] = "deploy";
                 copiedData["args"] = copiedData["args"] || {};

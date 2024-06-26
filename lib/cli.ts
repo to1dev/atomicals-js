@@ -47,7 +47,6 @@ function getRandomBitwork(num: number) {
 
 function groupAtomicalsUtxosByAtomicalId(atomical_utxos: any[]) {
   const sorted = {};
-  // console.log('atomical_utxos', JSON.stringify(atomical_utxos, null, 2));
   for (const utxo of atomical_utxos) {
 
     for (const atomicalId of utxo['atomicals']) {
@@ -61,7 +60,6 @@ function groupAtomicalsUtxosByAtomicalId(atomical_utxos: any[]) {
   return sorted
 }
 function showWalletFTBalancesDetails(obj: any, showutxos = false, accumulated) {
-  const atomicalsUtxosByAtomicalId = groupAtomicalsUtxosByAtomicalId(obj.atomicals_utxos);
   for (const atomicalId in obj.atomicals_balances) {
     if (!obj.atomicals_balances.hasOwnProperty(atomicalId)) {
       continue;
@@ -79,13 +77,12 @@ function showWalletFTBalancesDetails(obj: any, showutxos = false, accumulated) {
     console.log('Requested ticker status:', atomical['request_ticker_status']['status'])
     console.log('Ticker:', atomical['ticker'])
     console.log('Confirmed balance:', atomical['confirmed'])
-    console.log('UTXOs for Atomical:', atomicalsUtxosByAtomicalId[atomicalId].length);
-
+    // console.log('UTXOs for Atomical:', obj.atomicals_utxos);
     accumulated[atomical['ticker']] = accumulated[atomical['ticker']] || 0;
     accumulated[atomical['ticker']] += atomical['confirmed']
     if (showutxos)
-      console.log(JSON.stringify(atomicalsUtxosByAtomicalId[atomicalId], null, 2));
-  }
+      console.log(JSON.stringify(obj.atomicals_balances, null, 2));
+    }
   return accumulated
 }
 
