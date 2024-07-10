@@ -177,7 +177,7 @@ export class ElectrumApi implements ElectrumApiInterface {
         return this.call('server.version', []);
     }
 
-    public broadcast(rawtx: string, force = false): Promise<any> {
+    public broadcast(rawtx: string, force = true): Promise<any> {
         return this.call(
             force
                 ? 'blockchain.transaction.broadcast_force'

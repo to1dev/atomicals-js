@@ -72,7 +72,6 @@ export class MintInteractiveProtocolCommand implements CommandInterface {
     let filesData = await readJsonFileAsCompleteDataObjectEncodeFields(this.defJsonFile, ['code']);
     await atomicalBuilder.setData(filesData);
 
-    console.log('as');
     // The receiver output
     atomicalBuilder.addOutput({
       address: this.address,

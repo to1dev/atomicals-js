@@ -503,6 +503,7 @@ export class AtomicalsPayload {
             const tx = typeof x;
             const isAllowed = isAllowedtype(tx, allowBuffer);
             if (!isAllowed) {
+                console.log('tx', tx)
                 return false;
             }
             if (tx === 'object') {

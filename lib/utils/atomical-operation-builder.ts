@@ -579,17 +579,18 @@ export class AtomicalOperationBuilder {
                 copiedData["args"] = copiedData["args"] || {};
                 copiedData["args"]["request_dmitem"] = this.requestName;
                 copiedData["args"]["parent_container"] = this.requestParentId;
-                console.log(copiedData);
+                break;
             case REQUEST_NAME_TYPE.PROTOCOL:
+                console.log('this', this)
                 copiedData["p"] = this.requestName;
                 copiedData["op"] = "def";
-                console.log(copiedData);
+                break;
             case REQUEST_NAME_TYPE.CONTRACT:
-                copiedData["p"] = this.requestName;
-                // copiedData["name"] = this.requestName;
+                copiedData["p"] = this.requestProtocolName
+                copiedData["name"] = this.requestName;
                 copiedData["op"] = "deploy";
                 copiedData["args"] = copiedData["args"] || {};
-                console.log(copiedData);
+                break;
             default:
                 break;
         }
