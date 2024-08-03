@@ -254,7 +254,7 @@ export class ElectrumApi implements ElectrumApiInterface {
     }
 
     public atomicalsGetRealmInfo(realmOrSubRealm: string, verbose?: boolean): Promise<any> {
-        return this.call('blockchain.atomicals.get_realm_info', [realmOrSubRealm, verbose ? 1 : 0]);
+        return this.call('blockchain.atomicals.get_realm_info', [realmOrSubRealm]);
     }
 
     public atomicalsGetByRealm(realm: string): Promise<any> {
